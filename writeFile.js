@@ -16,7 +16,7 @@ function writeFile(path, text) {
       }
     })
   }else{
-    console.log(colors.warn('the file already exists'))
+    console.log(colors.warn('Hola Koders!!'))
   }
 }
 

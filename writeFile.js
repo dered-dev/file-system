@@ -1,6 +1,6 @@
+
 const fs = require('fs')
 var colors = require('./customColors');
-
 
 function writeFile(path, text) {
   if (!fs.existsSync('./files-test')){

@@ -1,14 +1,15 @@
+
 const fs = require('fs')
-const fsPromises = require('fs').promises;
 var colors = require('./customColors');
 
-function copyFile(path,destination) {
+function copyFile(path, destination) {
   if (fs.existsSync(path)){ 
-    fsPromises.copyFile(path, destination)
-    .then(() => {
+    fs.copyFile(path, destination, err => {
+      if(err) {
+        console.log(colors.error('No se pudo copiar el archivo ... ' + error))
+        return
+      }
       console.log(colors.success('...Archivo copiado'))
-    }).catch(() => {
-      console.log(colors.error('File not copied'))
     })
   }else{
     console.log(colors.warn("the file doesn't exists"))

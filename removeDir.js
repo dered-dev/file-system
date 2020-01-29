@@ -1,13 +1,11 @@
+
 const fs = require('fs')
-var colors = require('./customColors');
+let colors = require('./customColors');
 
 function removeDirRecursive(filePath) {
   if (fs.existsSync(filePath)) {
-    // is directory or file ?
-    let stats = fs.statSync(filePath);
-
-    // if file : unlinkSync 
-    if (stats.isFile()) {
+    let stats = fs.statSync(filePath) // is directory or file ?
+    if (stats.isFile()) { // if file => unlink
       fs.unlink(filePath, (err) => {
         if (err){
           console.log(colors.error(`El archivo ${filePath} no se puede eliminar`))
@@ -16,13 +14,11 @@ function removeDirRecursive(filePath) {
         console.log(colors.success(`Archivo ${filePath} eliminado`))
       });
     }
-
-    //if is a directory, readdir() and call removeDirRecursive() for each file
-    else {
+    else { // if directory
       let files = fs.readdirSync(filePath);
       files.forEach((file) => {
         removeDirRecursive(filePath + '/' + file);
-        console.log(filePath + '/' + file)
+        console.log(filePath + '/' + file) 
       });
       fs.rmdir(filePath, err => {
         if (err){

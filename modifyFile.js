@@ -1,9 +1,10 @@
+
 const fs = require('fs')
 var colors = require('./customColors');
 
 function modifyFile(path) {
-  if (fs.existsSync(path)){ 
-    fs.appendFile(path, '.. soy una modificación', (err) => {
+  if (fs.existsSync(path)) { 
+    fs.appendFile(path, ' .. soy una modificación', (err) => {
       if(err){
         console.log(colors.error('Error to modify file => ' + err))
       }else{

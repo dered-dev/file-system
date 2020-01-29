@@ -1,6 +1,6 @@
+
 const fs = require('fs')
 var colors = require('./customColors');
-
 
 function readDir(path) {
   if (fs.existsSync(path)){

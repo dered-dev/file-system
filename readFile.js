@@ -1,7 +1,7 @@
 const fs = require('fs')
 var colors = require('./customColors');
 
-function removeFile(path) {
+function readFile(path) {
   if (fs.existsSync(path)){
     console.log(colors.data('Reading file...'))
     fs.readFile(path, (err, data) => {
@@ -16,4 +16,4 @@ function removeFile(path) {
   }
 }
 
-removeFile('files-test/file-create.txt')
+readFile('files-test/file-create.txt')

@@ -3,7 +3,7 @@ var colors = require('./customColors');
 
 function readFile(path) {
   if (fs.existsSync(path)){
-    console.log(colors.data('Reading file...'))
+    console.log(colors.data('Reading file...'))     
     fs.readFile(path, (err, data) => {
       if(err){
         console.log(colors.error('Error to read file => ' + err))
